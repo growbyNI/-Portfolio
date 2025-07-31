@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Projects | Your Name Portfolio</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600;
+      }
+      .project-card:hover .project-overlay {
+        @apply opacity-100;
+      }
+      .mobile-menu {
+        @apply fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out;
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      .mobile-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 bg-white shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-gradient">YC.</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html" class="text-2xl hover:text-blue-600 transition-colors">Home</a>
+      <a href="#" class="text-2xl text-blue-600 font-medium">Projects</a>
+      <a href="index.html#about" class="text-2xl hover:text-blue-600 transition-colors">About</a>
+      <a href="index.html#contact" class="text-2xl hover:text-blue-600 transition-colors">Contact</a>
+    </div>
+      <button id="mobile-menu-button" class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <button id="close-menu" class="absolute top-6 right-6 text-2xl">
+        <i class="fas fa-times"></i>
+      </button>
+      <a href="index.html" class="text-2xl hover:text-blue-600 transition-colors">Home</a>
+      <a href="#" class="text-2xl text-blue-600 font-medium">Projects</a>
+      <a href="index.html#about" class="text-2xl hover:text-blue-600 transition-colors">About</a>
+      <a href="index.html#contact" class="text-2xl hover:text-blue-600 transition-colors">Contact</a>
+    </div>
+  </header>
+
+  <!-- Projects Header -->
+  <section class="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">
+        My <span class="text-gradient">Projects</span>
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Explore my portfolio of design and development work. Each project tells a story of challenges, solutions, and impact.
+      </p>
+    </div>
+  </section>
+
+  <!-- Project Filters -->
+  <section class="py-12">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="filter-btn px-6 py-2 bg-blue-600 text-white rounded-full font-medium" data-filter="all">
+          All Work
+        </button>
+        <button class="filter-btn px-6 py-2 bg-white hover:bg-gray-100 rounded-full font-medium transition-colors" data-filter="ui">
+          UI/UX Design
+        </button>
+        <button class="filter-btn px-6 py-2 bg-white hover:bg-gray-100 rounded-full font-medium transition-colors" data-filter="web">
+          Web Development
+        </button>
+        <button class="filter-btn px-6 py-2 bg-white hover:bg-gray-100 rounded-full font-medium transition-colors" data-filter="mobile">
+          Mobile Apps
+        </button>
+        <button class="filter-btn px-6 py-2 bg-white hover:bg-gray-100 rounded-full font-medium transition-colors" data-filter="branding">
+          Branding
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="py-8 pb-20">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Project 1 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-category="web">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="E-commerce Platform" 
+                 class="w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity flex items-end p-6">
+              <div>
+                <span class="text-white/80 text-sm">UI/UX • Development</span>
+                <h3 class="text-xl font-bold text-white mt-1">E-commerce Platform</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Modern Online Store</h3>
+            <p class="text-gray-600 mb-4">
+              A complete e-commerce solution with personalized recommendations and seamless checkout.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">React</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Node.js</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Figma</span>
+            </div>
+            <a href="project-detail.html" class="inline-flex items-center text-blue-600 font-medium group">
+              View Case Study
+              <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-category="mobile">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                 alt="Fitness App" 
+                 class="w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity flex items-end p-6">
+              <div>
+                <span class="text-white/80 text-sm">Mobile App • Health</span>
+                <h3 class="text-xl font-bold text-white mt-1">Fitness Tracker</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Health Companion App</h3>
+            <p class="text-gray-600 mb-4">
+              Award-winning fitness app tracking workouts, nutrition, and mental wellbeing.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Flutter</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Firebase</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">HealthKit</span>
+            </div>
+            <a href="project-detail.html" class="inline-flex items-center text-blue-600 font-medium group">
+              View Case Study
+              <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-category="ui">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Dashboard UI" 
+                 class="w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity flex items-end p-6">
+              <div>
+                <span class="text-white/80 text-sm">UI Design • SaaS</span>
+                <h3 class="text-xl font-bold text-white mt-1">Analytics Dashboard</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Business Intelligence Tool</h3>
+            <p class="text-gray-600 mb-4">
+              Complex data visualized through an intuitive interface for enterprise clients.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Figma</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">React</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">D3.js</span>
+            </div>
+            <a href="project-detail.html" class="inline-flex items-center text-blue-600 font-medium group">
+              View Case Study
+              <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-category="branding">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Corporate Branding" 
+                 class="w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity flex items-end p-6">
+              <div>
+                <span class="text-white/80 text-sm">Branding • Identity</span>
+                <h3 class="text-xl font-bold text-white mt-1">NovaTech Branding</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Tech Startup Identity</h3>
+            <p class="text-gray-600 mb-4">
+              Complete visual identity for an AI startup including logo, colors, and brand guidelines.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Illustrator</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Branding</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Print</span>
+            </div>
+            <a href="project-detail.html" class="inline-flex items-center text-blue-600 font-medium group">
+              View Case Study
+              <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-category="web">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1636&q=80" 
+                 alt="Restaurant Website" 
+                 class="w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity flex items-end p-6">
+              <div>
+                <span class="text-white/80 text-sm">Web Design • Food</span>
+                <h3 class="text-xl font-bold text-white mt-1">Bistro Website</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Gourmet Restaurant Site</h3>
+            <p class="text-gray-600 mb-4">
+              Mouthwatering design with online reservations and menu management system.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">WordPress</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">PHP</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">UI Design</span>
+            </div>
+            <a href="project-detail.html" class="inline-flex items-center text-blue-600 font-medium group">
+              View Case Study
+              <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-category="mobile">
+          <div class="relative h-64 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Mobile Game" 
+                 class="w-full h-full object-cover">
+            <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 transition-opacity flex items-end p-6">
+              <div>
+                <span class="text-white/80 text-sm">Game Design • Mobile</span>
+                <h3 class="text-xl font-bold text-white mt-1">Puzzle Adventure</h3>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Educational Game App</h3>
+            <p class="text-gray-600 mb-4">
+              Engaging puzzle game teaching kids coding concepts through interactive play.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Unity</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">C#</span>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Game Design</span>
+            </div>
+            <a href="project-detail.html" class="inline-flex items-center text-blue-600 font-medium group">
+              View Case Study
+              <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-center mt-16">
+        <nav class="flex items-center space-x-2">
+          <a href="#" class="px-4 py-2 border rounded-lg text-blue-600 border-blue-600 hover:bg-blue-50">
+            <i class="fas fa-chevron-left"></i>
+          </a>
+          <a href="#" class="px-4 py-2 border rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700">1</a>
+          <a href="#" class="px-4 py-2 border rounded-lg hover:bg-gray-100">2</a>
+          <a href="#" class="px-4 py-2 border rounded-lg hover:bg-gray-100">3</a>
+          <span class="px-2">...</span>
+          <a href="#" class="px-4 py-2 border rounded-lg hover:bg-gray-100">8</a>
+          <a href="#" class="px-4 py-2 border rounded-lg text-blue-600 border-blue-600 hover:bg-blue-50">
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to start your project?</h2>
+      <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
+        Let's collaborate to create something exceptional. Get in touch to discuss your ideas.
+      </p>
+      <a href="contact.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors shadow-lg">
+        Contact Me
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="text-2xl font-bold text-gradient mb-4 inline-block">YC.</a>
+          <p class="text-gray-400">
+            Crafting digital experiences that blend beauty and functionality.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-4">Services</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">UI/UX Design</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mobile Apps</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Branding</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-4">Connect</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors">
+              <i class="fab fa-dribbble"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors">
+              <i class="fab fa-behance"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white text-xl transition-colors">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="mt-6">
+            <a href="mailto:hello@example.com" class="text-gray-400 hover:text-white transition-colors">hello@example.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-colors opacity-0 invisible transition-all duration-300">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const closeMenuButton = document.getElementById('close-menu');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+      
+      closeMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Close menu when clicking on a link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+      
+      // Project Filter Functionality
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => {
+            btn.classList.remove('bg-blue-600', 'text-white');
+            btn.classList.add('bg-white', 'hover:bg-gray-100');
+          });
+          
+          // Add active class to clicked button
+          this.classList.add('bg-blue-600', 'text-white');
+          this.classList.remove('bg-white', 'hover:bg-gray-100');
+          
+          const filterValue = this.getAttribute('data-filter');
+          
+          // Filter projects
+          projectCards.forEach(card => {
+            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // Animate project cards on scroll
+      const animateCards = () => {
+        projectCards.forEach((card, index) => {
+          const cardPosition = card.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.2;
+          
+          if(cardPosition < screenPosition) {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }
+        });
+      };
+      
+      // Set initial state
+      projectCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+      });
+      
+      // Back to Top Button
+      const backToTopButton = document.getElementById('back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        // Animate cards
+        animateCards();
+        
+        // Show/hide back to top button
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.remove('opacity-0', 'invisible');
+          backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+          backToTopButton.classList.remove('opacity-100', 'visible');
+          backToTopButton.classList.add('opacity-0', 'invisible');
+        }
+      });
+      
+      // Back to top functionality
+      backToTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Pagination buttons hover effect
+      const paginationLinks = document.querySelectorAll('.pagination a');
+      paginationLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+          if (!this.classList.contains('bg-blue-600')) {
+            this.classList.add('hover:bg-gray-100');
+          }
+        });
+      });
+      
+      // Trigger initial animation
+      animateCards();
+    });
+  </script>
+</body>
+</html>
